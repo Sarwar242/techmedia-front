@@ -11,6 +11,7 @@
         <button v-on:click="getData()">Home Function</button>
     </ul>
 </template>
+
 <script>
 export default {
     name: "Child",
