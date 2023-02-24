@@ -1,0 +1,90 @@
+<script setup>
+defineProps({
+  msg: {
+    type: String,
+    required: true
+  }
+})
+</script>
+
+<template>
+  <div class="greetings">
+    <h1 class="green">Hi {{getName("Sarwar")}},</h1>
+    <div v-if="show">
+        <h3>
+        You’ve successfully completed:
+        </h3>
+        <label for="laravel">Laravel</label>&nbsp;
+        <input type="checkbox" value="laravel" id="laravel" name="laravel" v-model="technology">   <br> 
+        <label for="django">Django</label>&nbsp;
+        <input type="checkbox" value="django" id="django" name="django" v-model="technology">    <br> 
+        <label for="vue">Vue Js</label> &nbsp;
+        <input type="checkbox" value="vue" id="vue" name="vue" v-model="technology">    <br> 
+        <label for="git">Git</label>&nbsp;
+        <input type="checkbox" value="git" id="git" name="git" v-model="technology">   <br> 
+
+        <br><br>
+        <h1>Occupation: </h1>
+
+        <label for="student">Student</label>
+        <input type="radio" value="student" id="student" name="ocu" v-model="who">
+        <label for="dev">Developer</label>
+        <input type="radio" value="Developer" id="dev" name="ocu" v-model="who">
+        <h6>Selected Technology: {{technology}}</h6>
+        <h6>I am a : {{who}}</h6>
+    </div>        
+    <button v-on:click="show=!show">{{ btnStatus() }}</button>
+    <!-- <button v-else v-on:click="toggle()">Show</button> -->
+  </div>
+</template>
+
+<script>
+export default{
+  name: "Hello",
+  data(){
+      return {
+        msg2: "Cool",
+        phone: "123",
+        num:0,
+        technology:[],
+        who: null,
+        show: false,
+      };
+    },
+    methods:{
+      toggle(){
+        if(this.show){ this.show=false;}else{ this.show=true;}
+      },      
+      btnStatus(){
+        if(this.show){ return "Hide";}else{ return "Show";}
+      },
+      getName(name){
+          return name;
+        }
+    }
+
+};
+</script>
+<style scoped>
+h1 {
+  font-weight: 500;
+  font-size: 2.6rem;
+  top: -10px;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+.greetings h1,
+.greetings h3 {
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .greetings h1,
+  .greetings h3 {
+    text-align: left;
+  }
+}
+</style>
