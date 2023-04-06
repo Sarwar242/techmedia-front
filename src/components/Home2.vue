@@ -1,10 +1,17 @@
 <template>
-    <h1>Home Component</h1>
-    <h2>Slots in Vue js</h2>
-    <Child2> <h3>Sarwar here</h3> </Child2>
+    <h1>Home Component</h1> <br>
+    <h2>Slots in Vue js</h2> <br>
+    <ul>
+        <li v-for="item in list" :key="item.id">
+            <Child><h3> <span> Post id-{{item.id}} : </span>{{item.title}}</h3></Child>
+        </li>
+    </ul>
+    
+
 </template>
 <script>
 import Child2 from './Child2.vue';
+import axios from 'axios';
 
 export default {
     name: "Home2",
@@ -15,7 +22,8 @@ export default {
         return {
             name: "Child",
             red:false,
-            background:false
+            background:false,
+            list:[]
         }
     },
       methods:{
@@ -24,7 +32,12 @@ export default {
             this.background=!this.background;
             this.size=!this.size;
         }
-      }
+      },
+      async mounted(){
+        const res= await axios.get("https://my-json-server.typicode.com/typicode/demo/posts");
+        this.list=res.data;
+        console.log("result",res.data);
+    }
 }
 </script>
 

@@ -1,12 +1,14 @@
 <template>
     <h1>Child Component</h1>
-    <slot></slot>
+ 
+    <!-- <slot></slot> -->
+    <h3>{{d.title}}</h3>
 </template>
 <script>
 export default {
     name: "Child2",
     props: {
-
+        idx:String,
     },
     data(){
         return {

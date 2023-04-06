@@ -14,6 +14,7 @@
     <h1 :class="applyClass" > This is dynamic class binding!</h1>
     <button v-on:click="apply()">Apply</button>
 </template>
+
 <script>
 import Child from './Child.vue';
 import User from './User.vue';

@@ -35,6 +35,20 @@ import SimpleForm from './components/SimpleForm.vue';
 <router-view></router-view>
 </template>
 
+<script>
+export default{
+  name: "App",
+  data(){
+    // console.log("test");
+      return {
+        msg2: "Cool",
+        phone: "123",
+        lits:[]
+      };
+    }
+};
+</script>
+
 <style scoped>
 header {
     line-height: 1.5;
@@ -64,21 +78,3 @@ header {
     }
 }
 </style>
-<script>
-export default{
-  name: "App",
-  data(){
-    // console.log("test");
-      return {
-        msg2: "Cool",
-        phone: "123",
-      };
-    },
-  mounted(){
-    // alert("test");
-    setTimeout(()=>{
-      this.msg2="Changed!";
-    }, 3000);
-  }
-};
-</script>

@@ -11,6 +11,7 @@
 <button v-on:click="show=!show">Toggle</button>
     <User2 v-if="show"/>
 </template>
+
 <script>    
 import User2 from './User2.vue';
 export default{

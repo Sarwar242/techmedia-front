@@ -11,6 +11,15 @@ export default {
         return {
             profile:""
         }
+    },  
+    created() {
+    this.$watch(
+        () => this.$route.params,
+        (toParams, previousParams) => {
+            this.profile = toParams.name;
+            console.info(toParams.name, previousParams)
+        }
+        )
     },
     mounted(){
         const route= useRoute();
